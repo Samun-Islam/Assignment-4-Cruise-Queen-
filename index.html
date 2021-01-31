@@ -132,6 +132,8 @@
             TotalProductAmount('economyClass-count', 'subTotal-price', 'vat', 'total-price', -1, 100)
 
         });
+
+        //Alert part
         document.getElementById('book-now').addEventListener('click', function () {
             alert("Your First Class Tickets Count: " + reserveCountFirstClass + "\nYour Economy Class Tickets Count: " + reserveCountEconomy + "\nAmount Without Vat: $" + reserveSubTotal + "\nVat: $" + reserveVat + "\nYou Need To Pay: $" + reserveTotal);
         });
@@ -139,8 +141,8 @@
 
 
         let reserveSubTotal = 0, reserveVat = 0, reserveTotal = 0, reserveCountEconomy, reserveCountFirstClass;
-        function TotalProductAmount(id1, id2, id3, id4, one, productRate) {
-            const input = document.getElementById(id1);
+        function TotalProductAmount(class_count, subTotal_price, vat, total_price, one, productRate) {
+            const input = document.getElementById(class_count);
             const count = parseInt(input.value);
             const newCount = count + one;
 
@@ -160,9 +162,9 @@
                 reserveTotal = Math.round(Math.round(total * 0.1) + total);
             
 
-                document.getElementById(id2).innerText = "$" + total;
-                document.getElementById(id3).innerText = "$" + reserveVat;
-                document.getElementById(id4).innerText = "$" + reserveTotal;
+                document.getElementById(subTotal_price).innerText = "$" + total;
+                document.getElementById(vat).innerText = "$" + reserveVat;
+                document.getElementById(total_price).innerText = "$" + reserveTotal;
             }
             else if (newCount >= 0 && productRate == 100) {
                 
@@ -181,9 +183,9 @@
                 reserveTotal = Math.round(Math.round(total * 0.1) + total);
                 
 
-                document.getElementById(id2).innerText = "$" + total;
-                document.getElementById(id3).innerText = "$" + reserveVat;
-                document.getElementById(id4).innerText = "$" + reserveTotal;
+                document.getElementById(subTotal_price).innerText = "$" + total;
+                document.getElementById(vat).innerText = "$" + reserveVat;
+                document.getElementById(total_price).innerText = "$" + reserveTotal;
             }
 
         }
